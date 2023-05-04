@@ -1,15 +1,77 @@
-<div class="container mt-5">
-    <h2>Enter Input Features</h2>
-    <form #inputForm="ngForm" (ngSubmit)="onSubmit(inputForm)">
-      <div class="form-group">
-        <label for="feature1">Feature 1</label>
-        <input type="number" class="form-control" id="feature1" name="feature1" [(ngModel)]="feature1" required>
-        <div *ngIf="inputForm.controls['feature1']?.errors?.['required'] && inputForm.controls['feature1']?.touched" class="text-danger">
-          Feature 1 is required.
+<div class="container my-2">
+
+  <div class="row">
+    <!-- First Column -->
+    <div class="col-md-6">
+      <h4 class="text-center mb-4"> Data Input</h4>
+      <div class="input-fields-container align-items-center border shadow rounded p-4 bg-white">
+        <div class="form-class">
+        <form #inputForm="ngForm">
+          
+          <div class="form-group">
+            <label for="feature1">Feature 1</label>
+            <input type="text" class="form-control" id="feature1" required [(ngModel)]="feature1" name="feature1">
+          </div>
+          <div class="form-group">
+            <label for="feature1">Feature 1</label>
+            <input type="text" class="form-control" id="feature1" required [(ngModel)]="feature1" name="feature1">
+          </div>
+          <div class="form-group">
+            <label for="feature1">Feature 1</label>
+            <input type="text" class="form-control" id="feature1" required [(ngModel)]="feature1" name="feature1">
+          </div>
+          <div class="form-group">
+            <label for="feature1">Feature 1</label>
+            <input type="text" class="form-control" id="feature1" required [(ngModel)]="feature1" name="feature1">
+          </div> 
+          <div class="form-group">
+            <label for="feature1">Feature 1</label>
+            <input type="text" class="form-control" id="feature1" required [(ngModel)]="feature1" name="feature1">
+          </div>
+          <div class="form-group">
+            <label for="feature1">Feature 1</label>
+            <input type="text" class="form-control" id="feature1" required [(ngModel)]="feature1" name="feature1">
+          </div>
+          <div class="form-group">
+            <label for="feature1">Feature 1</label>
+            <input type="text" class="form-control" id="feature1" required [(ngModel)]="feature1" name="feature1">
+          </div>
+          <div class="form-group">
+            <label for="feature1">Feature 1</label>
+            <input type="text" class="form-control" id="feature1" required [(ngModel)]="feature1" name="feature1">
+          </div>
+          <div class="form-group">
+            <label for="feature1">Feature 1</label>
+            <input type="text" class="form-control" id="feature1" required [(ngModel)]="feature1" name="feature1">
+          </div>
+          <div class="form-group">
+            <label for="feature1">Feature 1</label>
+            <input type="text" class="form-control" id="feature1" required [(ngModel)]="feature1" name="feature1">
+          </div>
+        </form>
         </div>
+        <button type="submit" class="btn btn-primary btn-submit" (click)="onSubmit(inputForm)" [disabled]="!inputForm.valid">Predict</button>
       </div>
-      <!-- Add more input fields for other features as needed -->
-      <button type="submit" class="btn btn-primary" [disabled]="inputForm.invalid">Predict</button>
-    </form>
+      <!-- <div class="text-center mt-3">
+        <button type="submit" class="btn btn-primary btn-submit" (click)="onSubmit(inputForm)" [disabled]="!inputForm.valid">Submit</button>
+      </div> -->
+    </div>
+
+    <!-- Second Column -->
+    <div class="col-md-6">
+      <div class="column-content">
+      <!-- Upper Half - Predictions -->
+      <div class="upper-half">
+        <!-- <app-results></app-results> -->
+        <div id="plot-container"></div>
+      </div>
+      <!-- Lower Half - Plot -->
+      <div class="lower-half">
+        <!-- <app-results-plot></app-results-plot> -->
+        <img src="assets/test.png" alt="Your image description" class="img-fluid">
+      </div>
+      </div>
+    </div>
   </div>
-  
+
+</div>

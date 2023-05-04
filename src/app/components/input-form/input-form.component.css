@@ -1,0 +1,50 @@
+
+.input-fields-container {
+  max-height: 65%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-height: 65%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.form-class {
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  width: 100%;
+}
+
+.form-group {
+  width: 90%;
+  margin: 1%;
+  font-weight: bold;
+}
+
+.column-content {
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.upper-half,
+.lower-half {
+  height: 50%;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  /* flex: 1;
+  overflow-y: auto;
+  padding: 1rem; */
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.btn-submit {
+  margin-top: 1rem;
+  align-self: flex-end;
+}

@@ -20,6 +20,7 @@
     "@angular/router": "^15.2.0",
     "bootstrap": "^5.2.3",
     "plotly.js": "^2.22.0",
+    "plotly.js-dist": "^2.22.0",
     "rxjs": "~7.8.0",
     "timers": "^0.1.1",
     "tslib": "^2.3.0",

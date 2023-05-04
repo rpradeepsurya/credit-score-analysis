@@ -1,1 +1,110 @@
-/* You can add global styles to this file, and also import other style files */
+/* Color palette */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: var(--light-color);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.page-container {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  height: 100%;
+}
+
+.content-container {
+  overflow: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+/* Add a background image for the entire application */
+/* body {
+    background-image: url('assets/your-background-image.jpg');
+    background-size: cover;
+    background-position: center;
+  } */
+
+/* Change the background color and font color for the header */
+app-header {
+  background-color: #3f51b5;
+  color: #ffffff;
+}
+
+/* Add space between the header and other contents */
+app-header+main {
+  margin-top: 1rem;
+}
+
+/* Add a click effect to the header's tabs */
+app-header a {
+  transition: background-color 0.2s ease;
+}
+
+app-header a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Center the feedback form */
+app-feedback form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Adjust the width of the input box */
+app-feedback input[type="text"] {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Add space between the form and the button */
+app-feedback button {
+  margin-top: 1rem;
+}
+
+/* Global custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f51b5;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+

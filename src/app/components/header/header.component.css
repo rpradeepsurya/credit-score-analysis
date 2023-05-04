@@ -1,0 +1,23 @@
+.header-container {
+    background-color: #3f51b5;
+    padding: 10px 0;
+  }
+  
+  .header-container .navbar-brand,
+  .header-container .nav-link {
+    color: #fff;
+  }
+  
+  /* .header-container .nav-link:hover {
+    color: #ccc;
+    cursor: pointer;
+  } */
+
+  .nav-item {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .nav-item:hover {
+    transform: scale(1.1);
+  }
+  
