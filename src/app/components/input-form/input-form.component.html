@@ -1,0 +1,15 @@
+<div class="container mt-5">
+    <h2>Enter Input Features</h2>
+    <form #inputForm="ngForm" (ngSubmit)="onSubmit(inputForm)">
+      <div class="form-group">
+        <label for="feature1">Feature 1</label>
+        <input type="number" class="form-control" id="feature1" name="feature1" [(ngModel)]="feature1" required>
+        <div *ngIf="inputForm.controls['feature1']?.errors?.['required'] && inputForm.controls['feature1']?.touched" class="text-danger">
+          Feature 1 is required.
+        </div>
+      </div>
+      <!-- Add more input fields for other features as needed -->
+      <button type="submit" class="btn btn-primary" [disabled]="inputForm.invalid">Predict</button>
+    </form>
+  </div>
+  

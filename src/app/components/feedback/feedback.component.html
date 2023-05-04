@@ -1,0 +1,28 @@
+<div class="container mt-5">
+    <h2>Feedback</h2>
+    <form #feedbackForm="ngForm" (ngSubmit)="onSubmit(feedbackForm)">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" required>
+        <div *ngIf="feedbackForm.controls['name']?.errors?.['required'] && feedbackForm.controls['name']?.touched" class="text-danger">
+          Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" required>
+        <div *ngIf="feedbackForm.controls['email']?.errors?.['required'] && feedbackForm.controls['email']?.touched" class="text-danger">
+          Email is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="feedback">Feedback</label>
+        <textarea class="form-control" id="feedback" name="feedback" rows="3" [(ngModel)]="feedback" required></textarea>
+        <div *ngIf="feedbackForm.controls['feedback']?.errors?.['required'] && feedbackForm.controls['feedback']?.touched" class="text-danger">
+          Feedback is required.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="feedbackForm.invalid">Submit</button>
+    </form>
+  </div>
+  
