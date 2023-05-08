@@ -114,6 +114,10 @@ export class InputFormComponent {
     }
   }
 
+  explainModel() {
+    
+  }
+
   displayProbabilities(probabilities: number[]) {
     const data = [
       {

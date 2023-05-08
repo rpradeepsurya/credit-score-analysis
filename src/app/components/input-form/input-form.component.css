@@ -5,14 +5,31 @@
   flex-direction: column;
 }
 
+.form-container {
+  max-height: 70vh;
+}
+
 .container {
   max-height: 85%;
   margin-left: 2%;
   margin-right: 2%;
 }
 
+.viewport {
+  max-height: 78vh;
+}
+
+.button {
+  width: 15vw;
+}
+
+.centered-button {
+  display: flex;
+  justify-content: center;
+}
+
 .form-class {
-  max-height: calc(100vh - 100px);
+  max-height: 59vh;
   overflow-y: auto;
   width: 100%;
 }
@@ -51,4 +68,10 @@
 
 .required-asterisk {
   color: red;
+}
+
+.center-elem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
