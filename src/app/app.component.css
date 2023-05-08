@@ -1,0 +1,23 @@
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.app-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 100;
+}
+
+.main-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  /* padding: 16px; */
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}

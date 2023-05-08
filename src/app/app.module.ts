@@ -12,6 +12,7 @@ import { AboutModelComponent } from './components/about-model/about-model.compon
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     InputFormComponent,
     ResultsComponent,
     AboutModelComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,

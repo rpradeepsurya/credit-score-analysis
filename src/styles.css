@@ -55,9 +55,9 @@ app-header {
 }
 
 /* Add space between the header and other contents */
-app-header+main {
+/* app-header+main {
   margin-top: 1rem;
-}
+} */
 
 /* Add a click effect to the header's tabs */
 app-header a {

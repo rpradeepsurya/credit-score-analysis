@@ -20,14 +20,18 @@ export class FeedbackComponent {
         email: this.email,
         feedback: this.feedback
       };
+      alert('Thank you for your feedback!');
+      this.name = "";
+      this.email = "";
+      this.feedback = "";
 
-      this.apiService.submitFeedback(feedbackData).subscribe(response => {
-        // Handle successful feedback submission
-        alert('Thank you for your feedback!');
-        form.reset();
-      }, error => {
-        console.error('Error:', error);
-      });
+      // this.apiService.submitFeedback(feedbackData).subscribe(response => {
+      //   // Handle successful feedback submission
+      //   alert('Thank you for your feedback!');
+      //   form.reset();
+      // }, error => {
+      //   console.error('Error:', error);
+      // });
     }
   }
 }

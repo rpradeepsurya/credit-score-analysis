@@ -11,10 +11,14 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   submitFeedback(feedback: any) {
-    return this.http.post(`${this.API_BASE_URL}/api/feedback/submit`, feedback);
+    return this.http.post(`${this.API_BASE_URL}/feedback`, feedback);
   }
 
   makePrediction(formData: any) {
-    return this.http.post(`${this.API_BASE_URL}/api/predict`, formData);
+    return this.http.post(`${this.API_BASE_URL}/predict`, formData);
+  }
+
+  makeBatchPrediction(formData: any) {
+    return this.http.post(`${this.API_BASE_URL}/predict_batch`, formData);
   }
 }

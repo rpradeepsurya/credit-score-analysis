@@ -6,7 +6,7 @@
 }
 
 .container {
-  max-height: 65%;
+  max-height: 85%;
   margin-left: 2%;
   margin-right: 2%;
 }
@@ -47,4 +47,8 @@
 .btn-submit {
   margin-top: 1rem;
   align-self: flex-end;
+}
+
+.required-asterisk {
+  color: red;
 }

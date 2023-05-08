@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="text-center mt-4">Batch Prediction - Upload CSV</h3>
+        <div class="card mt-4">
+          <div class="card-body">
+            <div class="d-flex justify-content-center">
+              <input type="file" id="fileInput" (change)="onFileSelected($event)" accept=".csv" hidden>
+              <label for="fileInput" class="btn btn-primary">
+                <i class="fa fa-upload"></i> Upload CSV
+              </label>
+            </div>
+            <p class="text-center mt-3" *ngIf="fileName">Selected file: {{ fileName }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
