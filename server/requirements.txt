@@ -1,5 +1,8 @@
 flask
 flask-cors
+flask-talisman
 numpy
 pandas
 xgboost
+joblib
+shap
