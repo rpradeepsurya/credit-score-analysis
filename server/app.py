@@ -5,6 +5,12 @@ import pandas as pd
 import joblib
 import xgboost
 import shap
+import mpld3
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+import warnings
+warnings.filterwarnings("ignore")
 
 app = Flask(__name__)
 CORS(app)
@@ -68,17 +74,48 @@ def predict():
     probabilities = model.predict_proba(processed_df)
 
     # Get SHAP values
-    shap_values = explainer(processed_df)
+    shap_values = explainer.shap_values(pd.DataFrame(processed_df.iloc[0, :]).T)
+
+    shap.initjs()
+
+    summary_plot = shap.summary_plot(shap_values, pd.DataFrame(processed_df.iloc[0, :]).T, class_names=['Poor', 'Standard', 'Good'])
+    summary_html = mpld3.fig_to_html(plt.gcf())
+    plt.clf()
+
+    # Create the force plot
+    force_plot = shap.force_plot(explainer.expected_value[0], shap_values[0], pd.DataFrame(processed_df.iloc[0, :]).T, show=False)
+    force_html = mpld3.fig_to_html(plt.gcf())
+    plt.clf()
+
+    # Extract data from the summary plot
+    summary_data = {
+    'base_value': explainer.expected_value[0].tolist(),
+    'shap_values': [shap_value.tolist() for shap_value in shap_values[0]], #shap_values[0].tolist(),
+    'feature_values': processed_df.iloc[0, :].values.tolist(),
+    'feature_names': processed_df.columns.tolist(),
+    'class_names': ['Poor', 'Standard', 'Good'],
+    }
+
+# Extract data from the force plot
+    force_data = {
+    'base_value': explainer.expected_value[0].tolist(),
+    'shap_values': [shap_value.tolist() for shap_value in shap_values[0][0]], #shap_values[0][0].tolist(),
+    'feature_values': processed_df.iloc[0, :].values.tolist(),
+    'feature_names': processed_df.columns.tolist(),
+    }
 
     # Prepare the response
     response = {
         'predictions': predictions.tolist(),
         'probabilities': probabilities.tolist(),
-        'shap_values': shap_values.values.tolist(),
+        # 'shap_values': shap_values,
+        'summary_data': summary_data,
+        'force_data': force_data,
         'input_data': data
     }
     print("="*30)
     print("Response ready.")
+    print(response)
     return jsonify(response)
 
 @app.route('/predict_batch', methods=['POST'])
