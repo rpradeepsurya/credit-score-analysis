@@ -2,6 +2,9 @@ import { Component, NgZone, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { trigger, style, transition, animate } from '@angular/animations';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { MatDialog } from '@angular/material/dialog';
+import { PlotModalComponent, DialogData } from '../plot-modal/plot-modal.component';
 import * as Plotly from 'plotly.js';
 
 @Component({
@@ -30,15 +33,25 @@ export class InputFormComponent {
   debt: number;
   cMix: string;
   payMin: string;
-  showPlot:boolean = false;
-  inputData:any;
-  plotElement:any;
+  showPlot: boolean = false;
+  inputData: any;
+  plotElement: any;
+  summaryPlotHtml: SafeHtml;
+  forcePlotHtml: SafeHtml;
+  summary_data: any;
+  force_data: any;
 
-  monthList:Array<string> = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 
-                          'October', 'November', 'December']
+  monthList: Array<string> = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+    'October', 'November', 'December']
 
-  
-  constructor(private apiService: ApiService, private router: Router, private ngZone: NgZone, private cdr: ChangeDetectorRef) { 
+
+  constructor(
+    private apiService: ApiService, 
+    private router: Router, 
+    private ngZone: NgZone, 
+    private cdr: ChangeDetectorRef, 
+    private sanitizer: DomSanitizer,
+    private dialog: MatDialog) {
 
     // this.displayProbabilities([0.2, 0.8, 0.45]);
 
@@ -68,9 +81,9 @@ export class InputFormComponent {
         // Credit_Mix: this.cMix,
         // Payment_of_Min_Amount: this.payMin,
         Payment_of_Min_Amount_NM: 0,
-        Payment_of_Min_Amount_No: 0,        
-        Payment_of_Min_Amount_Yes: 0       
-        
+        Payment_of_Min_Amount_No: 0,
+        Payment_of_Min_Amount_Yes: 0
+
       };
 
       if (this.cMix == "Good") {
@@ -93,7 +106,8 @@ export class InputFormComponent {
         this.inputData["Payment_of_Min_Amount_NM"] = 1
       }
 
-      this.apiService.makePrediction(this.inputData).subscribe((response:any) => {
+      this.apiService.setLoading(true);
+      this.apiService.makePrediction(this.inputData).subscribe((response: any) => {
         // Pass the prediction results to the ResultsComponent
         console.log("Response")
         console.log(response)
@@ -103,19 +117,33 @@ export class InputFormComponent {
         this.cdr.detectChanges();
         // this.router.navigate(['/results'], { state: { results: response } });
         this.displayProbabilities(response["probabilities"])
-        
+        this.summary_data = response['summary_data']
+        this.force_data = response['force_data']
+        // this.summaryPlotHtml = this.sanitizer.bypassSecurityTrustHtml(response['summary_plot']);
+        // this.forcePlotHtml = this.sanitizer.bypassSecurityTrustHtml(response['force_plot']);
+        this.apiService.setLoading(false);
       }, error => {
         console.error('Error:', error);
         this.ngZone.run(() => {
-          this.showPlot = false; 
+          this.showPlot = false;
         });
         this.cdr.detectChanges();
+        this.apiService.setLoading(false);
       });
+
     }
   }
 
   explainModel() {
-    
+    const dialogData: DialogData = {
+      summary_data: this.summary_data,
+      force_data: this.force_data
+    };
+
+    this.dialog.open(PlotModalComponent, {
+      data: dialogData,
+      panelClass: 'custom-dialog-container'
+    });
   }
 
   displayProbabilities(probabilities: number[]) {
@@ -130,7 +158,7 @@ export class InputFormComponent {
         },
       },
     ] as any[]; //as any as Plotly.Data[];
-  
+
     const layout = {
       autosize: true,
       title: {
@@ -154,14 +182,15 @@ export class InputFormComponent {
     const config = {
       responsive: true,
     };
-  
+
     this.plotElement = document.getElementById('plot-container');
 
     if (this.plotElement['data'] && this.plotElement.data.length) {
-      Plotly.restyle(this.plotElement, {'x': probabilities});
+      Plotly.restyle(this.plotElement, { 'x': probabilities });
     } else {
       Plotly.newPlot('plot-container', data, layout, config);
     }
   }
 
+  
 }

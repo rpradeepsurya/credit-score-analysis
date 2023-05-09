@@ -13,6 +13,10 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { PlotModalComponent } from './components/plot-modal/plot-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -24,14 +28,18 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     ResultsComponent,
     AboutModelComponent,
     FeedbackComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    PlotModalComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

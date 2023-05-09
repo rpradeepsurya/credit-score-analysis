@@ -1,0 +1,15 @@
+<!-- In plot-modal.component.html -->
+<div cdkDrag cdkDragRootElement=".cdk-overlay-pane">
+    <h2 mat-dialog-title>Plots</h2>
+    <mat-dialog-content>
+      <p>Textual explanation goes here.</p>
+      <!-- <div [innerHTML]="data.summaryPlotHtml"></div>
+      <div [innerHTML]="data.forcePlotHtml"></div> -->
+      <div id="summary-plot-container"></div>
+      <div id="force-plot-container"></div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close>Close</button>
+    </mat-dialog-actions>
+  </div>
+  

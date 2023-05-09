@@ -5,6 +5,8 @@
         <div class="card mt-4">
           <div class="card-body">
             <div class="d-flex justify-content-center">
+              <!-- <button (click)="downloadTemplate()">Download Template</button> -->
+              <button type="submit" class="btn btn-primary btn-submit" (click)="downloadTemplate()">Download Template</button>
               <input type="file" id="fileInput" (change)="onFileSelected($event)" accept=".csv" hidden>
               <label for="fileInput" class="btn btn-primary">
                 <i class="fa fa-upload"></i> Upload CSV
