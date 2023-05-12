@@ -1,8 +1,8 @@
-flask
-flask-cors
-flask-talisman
-numpy
-pandas
-xgboost
-joblib
-shap
+Flask==2.3.2
+Flask_Cors==3.0.10
+joblib==1.2.0
+matplotlib==3.7.1
+mpld3==0.5.9
+pandas==2.0.1
+shap==0.41.0
+xgboost==1.7.5
