@@ -1,6 +1,10 @@
-# CreditScoreAnalysis
+# Credit Score Analysis
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.7.
+
+## Install Packages
+
+Run `npm install` to install all dependencies.
 
 ## Development server
 

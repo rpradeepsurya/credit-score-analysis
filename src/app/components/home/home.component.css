@@ -1,34 +1,33 @@
 .blog-article {
-    font-family: 'Arial', sans-serif;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 1.2rem;
-    line-height:1.5;
-    color: #333;
-  }
-  
-  .blog-article h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .author {
-    font-size: 1rem;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
-  }
-  
-  .date {
-    font-weight: normal;
-    color: #777;
-    margin-left: 0.5rem;
-  }
-  
-  .content {
-    font-size: 1.125rem;
-  }
+  font-family: 'Arial', sans-serif;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 1.2rem;
+  line-height: 1.5;
+  color: #333;
+}
 
-  p {
-    text-align: justify;
-  }
-  
+.blog-article h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.author {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.date {
+  font-weight: normal;
+  color: #777;
+  margin-left: 0.5rem;
+}
+
+.content {
+  font-size: 1.125rem;
+}
+
+p {
+  text-align: justify;
+}

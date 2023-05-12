@@ -65,7 +65,7 @@
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
             "headers": {
-              "Content-Security-Policy": "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://stackpath.bootstrapcdn.com https://code.jquery.com https://cdnjs.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' 'unsafe-eval' fonts.gstatic.com fonts.googleapis.com https://stackpath.bootstrapcdn.com https://use.fontawesome.com; object-src 'none'; img-src 'self' data: blob:; font-src 'self' data: https://use.fontawesome.com fonts.gstatic.com fonts.googleapis.com; connect-src 'self' http://127.0.0.1:5000; frame-src https://app.powerbi.com"
+              "Content-Security-Policy": "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://stackpath.bootstrapcdn.com https://code.jquery.com https://cdnjs.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' 'unsafe-eval' fonts.gstatic.com fonts.googleapis.com https://stackpath.bootstrapcdn.com https://use.fontawesome.com; object-src 'none'; img-src 'self' data: blob:; font-src 'self' data: https://use.fontawesome.com fonts.gstatic.com fonts.googleapis.com; connect-src 'self' http://127.0.0.1:5000 http://flask-server:5000; frame-src https://app.powerbi.com"
             },
             "browserTarget": "credit-score-analysis:build"
           },

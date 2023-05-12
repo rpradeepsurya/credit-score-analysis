@@ -1,16 +1,20 @@
-import { Component, NgZone, ChangeDetectorRef } from '@angular/core';
+import { Component, NgZone, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { trigger, style, transition, animate } from '@angular/animations';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PlotModalComponent, DialogData } from '../plot-modal/plot-modal.component';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import * as Plotly from 'plotly.js';
 
 @Component({
   selector: 'app-input-form',
   templateUrl: './input-form.component.html',
   styleUrls: ['./input-form.component.css'],
+  providers: [
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { closeOnNavigation: true, disableClose: true } }
+  ],
   animations: [
     trigger('fadeIn', [
       transition(':enter', [
@@ -21,6 +25,7 @@ import * as Plotly from 'plotly.js';
   ],
 })
 export class InputFormComponent {
+  @ViewChild('focusableContainer', { static: false }) focusableContainer: ElementRef;
   age: number;
   month: string;
   monthlySalary: number;
@@ -40,22 +45,20 @@ export class InputFormComponent {
   forcePlotHtml: SafeHtml;
   summary_data: any;
   force_data: any;
+  summary_base64: any;
+  force_base64: any;
 
   monthList: Array<string> = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
     'October', 'November', 'December']
 
 
   constructor(
-    private apiService: ApiService, 
-    private router: Router, 
-    private ngZone: NgZone, 
-    private cdr: ChangeDetectorRef, 
+    private apiService: ApiService,
+    private router: Router,
+    private ngZone: NgZone,
+    private cdr: ChangeDetectorRef,
     private sanitizer: DomSanitizer,
-    private dialog: MatDialog) {
-
-    // this.displayProbabilities([0.2, 0.8, 0.45]);
-
-  }
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.displayProbabilities([0, 0, 0]);
@@ -78,8 +81,6 @@ export class InputFormComponent {
         Num_of_Delayed_Payment: this.numDPay,
         Delay_from_due_date: this.dueDelay,
         Outstanding_Debt: this.debt,
-        // Credit_Mix: this.cMix,
-        // Payment_of_Min_Amount: this.payMin,
         Payment_of_Min_Amount_NM: 0,
         Payment_of_Min_Amount_No: 0,
         Payment_of_Min_Amount_Yes: 0
@@ -119,6 +120,8 @@ export class InputFormComponent {
         this.displayProbabilities(response["probabilities"])
         this.summary_data = response['summary_data']
         this.force_data = response['force_data']
+        this.summary_base64 = response['summary_base64']
+        this.force_base64 = response['force_base64']
         // this.summaryPlotHtml = this.sanitizer.bypassSecurityTrustHtml(response['summary_plot']);
         // this.forcePlotHtml = this.sanitizer.bypassSecurityTrustHtml(response['force_plot']);
         this.apiService.setLoading(false);
@@ -135,14 +138,28 @@ export class InputFormComponent {
   }
 
   explainModel() {
-    const dialogData: DialogData = {
-      summary_data: this.summary_data,
-      force_data: this.force_data
-    };
+    if (this.dialog.openDialogs.length > 0) {
+      return;
+    }
+    const dialogConfig = new MatDialogConfig();
+    const dialogRef = this.dialog.open(PlotModalComponent, {
+      width: '80%',
+      height: '80%',
+      maxWidth: '80vw',
+      maxHeight: '80vh',
+      data: {
+        summary_data: this.summary_data,
+        force_data: this.force_data,
+        summary_base64: this.summary_base64,
+        force_base64: this.force_base64
+      },
+      autoFocus: true,
+      disableClose: false,
+      panelClass: 'custom-dialog-wrapper'
+    });
 
-    this.dialog.open(PlotModalComponent, {
-      data: dialogData,
-      panelClass: 'custom-dialog-container'
+    dialogRef.afterClosed().subscribe(result => {
+      window.focus();
     });
   }
 
@@ -154,10 +171,10 @@ export class InputFormComponent {
         y: ['Poor', 'Standard', 'Good'],
         orientation: 'h',
         marker: {
-          color: ['red', 'orange', 'green'], // Custom colors for each bar
+          color: ['red', 'orange', 'green'],
         },
       },
-    ] as any[]; //as any as Plotly.Data[];
+    ] as any[];
 
     const layout = {
       autosize: true,
@@ -192,5 +209,4 @@ export class InputFormComponent {
     }
   }
 
-  
 }

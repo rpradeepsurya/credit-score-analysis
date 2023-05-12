@@ -10,7 +10,7 @@ export class ApiService {
   private readonly API_BASE_URL = environment.apiBaseUrl;
   loadingStatus: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   setLoading(status: boolean): void {
     this.loadingStatus.next(status);
@@ -25,6 +25,6 @@ export class ApiService {
   }
 
   makeBatchPrediction(formData: any) {
-    return this.http.post(`${this.API_BASE_URL}/predict_batch`, formData);
+    return this.http.post(`${this.API_BASE_URL}/predict_batch`, formData, { responseType: 'blob' });
   }
 }
