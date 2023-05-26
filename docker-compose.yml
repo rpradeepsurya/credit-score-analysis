@@ -3,7 +3,7 @@ version: "3.8"
 
 services:
   client:
-    build: ./client
+    build: ./webUI
     ports:
       - "8080:8080"
 

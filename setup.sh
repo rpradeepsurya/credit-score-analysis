@@ -12,7 +12,7 @@ echo "Flask server is running on http://localhost:5000"
 sleep 3
 
 # Navigate to the client directory, install dependencies and run the Angular app
-cd ../client
+cd ../webUI
 npm install
 ng serve &
 echo "Angular app is running on http://localhost:4200"
