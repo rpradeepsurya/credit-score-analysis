@@ -1,0 +1,76 @@
+.input-fields-container {
+  max-height: 65%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrapper {
+  position: relative;
+}
+
+.form-container {
+  max-height: 70vh;
+}
+
+.container {
+  max-height: 85%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.viewport {
+  max-height: 78vh;
+}
+
+.button {
+  width: 15vw;
+}
+
+.centered-button {
+  display: flex;
+  justify-content: center;
+}
+
+.form-class {
+  max-height: 59vh;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.form-group {
+  width: 90%;
+  margin: 1%;
+  font-weight: bold;
+}
+
+.column-content {
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.upper-half,
+.lower-half {
+  height: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.btn-submit {
+  margin-top: 1rem;
+  align-self: flex-end;
+}
+
+.required-asterisk {
+  color: red;
+}
+
+.center-elem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

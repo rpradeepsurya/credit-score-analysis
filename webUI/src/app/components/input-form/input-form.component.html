@@ -1,0 +1,99 @@
+<div class="container my-2" #focusableContainer tabindex="-1">
+
+  <div class="row">
+    <!-- First Column -->
+    <div class="col-md-6 viewport">
+      <h4 class="text-center mt-1 mb-2"> Data Sample Input</h4>
+      <div class="form-container align-items-center border shadow rounded p-4 bg-white">
+        <div class="form-class">
+          <form #inputForm="ngForm">
+            <div class="form-group">
+              <label for="age">Age <span class="required-asterisk">*</span></label>
+              <input type="text" class="form-control" id="age" [(ngModel)]="age" name="age" required>
+            </div>
+            <div class="form-group">
+              <label for="month">Month <span class="required-asterisk">*</span></label>
+              <select class="form-control" id="month" required [(ngModel)]="month" name="month">
+                <option value="" disabled>Select an option</option>
+                <option *ngFor="let option of monthList" [value]="option">{{option}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="monthlySalary">Monthly Inhand Salary <span class="required-asterisk">*</span></label>
+              <input type="text" class="form-control" id="monthlySalary" required [(ngModel)]="monthlySalary"
+                name="monthlySalary" required>
+            </div>
+            <div class="form-group">
+              <label for="numBankAcc">Number of Bank Accounts <span class="required-asterisk">*</span></label>
+              <input type="text" class="form-control" id="numBankAcc" required [(ngModel)]="numBankAcc"
+                name="numBankAcc" required>
+            </div>
+            <div class="form-group">
+              <label for="numCC">Number of Credit Cards <span class="required-asterisk">*</span></label>
+              <input type="text" class="form-control" id="numCC" required [(ngModel)]="numCC" name="numCC" required>
+            </div>
+            <div class="form-group">
+              <label for="cMix">Credit Mix <span class="required-asterisk">*</span></label>
+              <select class="form-control" id="cMix" required [(ngModel)]="cMix" name="cMix">
+                <option value="">Select</option>
+                <option value="Good">Good</option>
+                <option value="Poor">Poor</option>
+                <option value="Standard">Standard</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="payMin">Payment of Minimum Amount <span class="required-asterisk">*</span></label>
+              <select class="form-control" id="payMin" required [(ngModel)]="payMin" name="payMin">
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="NM">Not Mentioned</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="interestRate">Interest Rate (in %) <span class="required-asterisk">*</span></label>
+              <input type="text" class="form-control" id="interestRate" [(ngModel)]="interestRate" name="interestRate"
+                required>
+            </div>
+            <div class="form-group">
+              <label for="numLoan">Number of Loan <span class="required-asterisk">*</span></label>
+              <input type="text" class="form-control" id="numLoan" [(ngModel)]="numLoan" name="numLoan" required>
+            </div>
+            <div class="form-group">
+              <label for="numDPay">Number of Delayed Payment <span class="required-asterisk">*</span></label>
+              <input type="text" class="form-control" id="numDPay" [(ngModel)]="numDPay" name="numDPay" required>
+            </div>
+            <div class="form-group">
+              <label for="dueDelay">Delay from Due Date <span class="required-asterisk">*</span></label>
+              <input type="text" class="form-control" id="dueDelay" [(ngModel)]="dueDelay" name="dueDelay" required>
+            </div>
+            <div class="form-group">
+              <label for="debt">Outstanding Debt <span class="required-asterisk">*</span></label>
+              <input type="text" class="form-control" id="debt" [(ngModel)]="debt" name="debt" required>
+            </div>
+          </form>
+        </div>
+        <div class="centered-button">
+          <button type="submit" class="btn btn-primary btn-submit button" (click)="onSubmit(inputForm)"
+            [disabled]="!inputForm.valid">Predict</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Column -->
+    <div class="col-md-6 viewport">
+      <div class="column-content mt-5">
+        <!-- Upper Half - Predictions -->
+        <div class="upper-half" [hidden]="!showPlot">
+          <div id="plot-container"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 text-center mt-4" [hidden]="!showPlot">
+      <h4 class="text-center mt-1 mb-2"> Feature Importance</h4>
+      <img [src]="'data:image/png;base64,' + summary_base64" alt="SHAP Summary Plot">
+    </div>
+  </div>
+
+</div>

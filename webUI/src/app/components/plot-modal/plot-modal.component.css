@@ -1,0 +1,59 @@
+/* .mat-dialog-container {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 100% !important;
+    margin: 0 !important;
+  } */
+
+  .custom-modal-container {
+    max-width: 90%;
+    /* max-height: 80%; */
+    /* overflow: auto; */
+  }
+
+  .mat-dialog-container {
+    max-width: 90% !important; 
+    /* max-height: 80% !important; */
+    /* overflow: auto !important; */
+  }
+
+  .custom-dialog-wrapper .mat-dialog-container {
+    width: 80%;
+    height: 80%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .plot-container {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 20px;
+  }
+  
+  .mat-dialog-title {
+    background-color: #3f51b5;
+    color: #ffffff;
+    padding: 10px;
+  }
+
+  .centered-title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .centered-actions {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }

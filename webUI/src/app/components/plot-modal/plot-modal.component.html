@@ -1,0 +1,24 @@
+<!-- In plot-modal.component.html -->
+<!-- <div cdkDrag cdkDragRootElement=".cdk-overlay-pane"> -->
+  <div class="custom-dialog-wrapper">
+    <!-- <h2 mat-dialog-title class="mat-dialog-title centered-title">Prediction Explanation</h2> -->
+    <mat-dialog-content>
+      <div class="custom-modal-container">
+      <!-- <p>Textual explanation goes here.</p> -->
+      <!-- <div [innerHTML]="data.summaryPlotHtml"></div>
+      <div [innerHTML]="data.forcePlotHtml"></div> -->
+       <!-- <div id="shap-summary-plot" style="width: 100%;"></div> -->
+      <!--<div id="force-plot-container" #summaryPlotContainer style="height: 400px; width: 100%;"></div> -->
+
+        <img [src]="'data:image/png;base64,' + data.summary_base64" alt="SHAP Summary Plot">
+
+      <!-- <div>
+        <img [src]="'data:image/png;base64,' + data.force_base64" alt="SHAP Force Plot">
+      </div> -->
+    </div>
+    </mat-dialog-content>
+    <mat-dialog-actions class="centered-actions">
+      <button class="btn btn-primary btn-submit" mat-button mat-dialog-close>Close</button>
+    </mat-dialog-actions>
+  <!-- </div> -->
+  

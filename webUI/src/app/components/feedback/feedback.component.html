@@ -1,0 +1,21 @@
+<div class="feedback-container">
+  <div class="col-5 my-5 row">
+  <div class="input-fields-container align-items-center border shadow rounded p-4 bg-white">
+  <form (ngSubmit)="onSubmit(feedbackForm)" #feedbackForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="name" name="name">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" required [(ngModel)]="email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea class="form-control" id="message" rows="3" required [(ngModel)]="feedback" name="message"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary btn-submit" [disabled]="!feedbackForm.valid">Submit Feedback</button>
+  </form>
+  </div>
+</div>
+</div>
