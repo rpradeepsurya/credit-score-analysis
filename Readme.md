@@ -30,3 +30,7 @@ You have to run `setup.sh` to start the application. Before that ensure the foll
 - **Angular CLI**: Make sure you have Angular CLI installed globally. You can check this by running `ng --version`. If you don't have Angular CLI, you can install it by running `npm install -g @angular/cli`.
 
 - **Bash shell**: Ensure that you have a bash shell available on your system. On Linux and macOS, bash is usually preinstalled. On Windows, you can use Git Bash, Windows Subsystem for Linux (WSL), or another bash-compatible shell.
+
+
+## ML Model Deployment
+This project uses the saved model from local directory. To deploy the model as a REST endpoint on Azure cloud, refer the extension of this project in this [repo](https://github.com/rpradeepsurya/azure_dic_project)
