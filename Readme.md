@@ -1,14 +1,16 @@
 # Credit Score Analysis
+<p align="justify">
+This project work is part of UB CSE587 Data Intensive Computing coursework. A comprehensive analysis was performed on a large dataset of credit-related records, followed by the development and tuning of machine learning models, with XGBoost demonstrating superior performance. The model was then integrated into a web application developed with Angular and Flask, which not only predicts credit score brackets in real-time but also provides insightful Power BI visualizations and SHAP value interpretations for model prediction, enhancing the decision-making process.
+</p>
 
 https://github.com/rpradeepsurya/credit-score-analysis/assets/18418891/077fbeab-cf01-4330-8a05-362f5f8da0dc
 
 
-This project work is part of UB CSE587 Data Intensive Computing coursework. A comprehensive analysis was performed on a large dataset of credit-related records, followed by the development and tuning of machine learning models, with XGBoost demonstrating superior performance. The model was then integrated into a web application developed with Angular and Flask, which not only predicts credit score brackets in real-time but also provides insightful Power BI visualizations and SHAP value interpretations for model prediction, enhancing the decision-making process.
-
 ## Problem Statement
-
+<p align="justify">
 Global finance companies usually use basic banking and credit-related information to determine customers' creditworthiness (also known as credit score brackets). Lenders use these score brackets to categorize borrowers into different risk levels and assess their likelihood of default. Credit scores depend on various factors such as annual income, credit utilization ratio, number of bank accounts, credit cards, etc. Calculating and classifying customers into different score brackets are complicated and challenging for financial companies to do manually. Inaccurate credit score classification can lead to potential financial loss. Therefore, accurate and efficient machine learning models to classify the credit score bracket are required to assist in making informed decisions. Thus, it is a significant problem in the financial and lending industries.
 In this project, the objective is to analyze the dataset with banking and credit-related information to identify key features that impact credit score brackets and evaluate different machine learning algorithms to come up with a model that can accurately classify the scores without bias. Thus, developing accurate credit score classification models can help promote equality, fairness, and efficient lending practices.
+</p>
 
 ## Dataset
 [Source](https://www.kaggle.com/datasets/parisrohan/credit-score-classification?select=train.csv)
