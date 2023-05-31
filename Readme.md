@@ -1,5 +1,13 @@
 # Credit Score Analysis
 
+
+<div style="position:relative;width:fit-content;height:fit-content;">
+    <a style="position:absolute;top:20px;right:1rem;opacity:0.8;" href="https://clipchamp.com/watch/z0YbMAxJrOa?utm_source=embed&utm_medium=embed&utm_campaign=watch">
+        <img style="height:22px;" src="https://clipchamp.com/e.svg" alt="Made with Clipchamp" />
+    </a>
+    <iframe allow="autoplay;" allowfullscreen style="border:none" src="https://clipchamp.com/watch/z0YbMAxJrOa/embed" width="640" height="360"></iframe>
+</div>
+
 This project work is part of UB CSE587 Data Intensive Computing coursework. A comprehensive analysis was performed on a large dataset of credit-related records, followed by the development and tuning of machine learning models, with XGBoost demonstrating superior performance. The model was then integrated into a web application developed with Angular and Flask, which not only predicts credit score brackets in real-time but also provides insightful Power BI visualizations and SHAP value interpretations for model prediction, enhancing the decision-making process.
 
 ## Problem Statement
